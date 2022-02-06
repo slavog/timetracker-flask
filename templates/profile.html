@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash{{cat}}">{{msg}}</div>
+{% endfor %}
+<main class="main">
+    <section class="intro">
+        <div class="wrapper">
+            <div class="profile_top_wrapper">
+                <h2 class="intro__title">
+                    Привет, admin
+                </h1>
+                <div>
+                    <a class="logout" href="/logout">Выйти из личного кабинета</a>
+                </div>
+            </div>
+            <div class="control_panel">
+                <div class="left_side">
+                    <div class="earnings">
+                        <p id="subtitle">Заработано:</p>
+                        <p id="info">100000 рублей</p>
+                    </div>
+                    <div class="total_time">
+                        <p id="subtitle">Время работы:</p>
+                        <p id="info">148 часов</p>
+                    </div>
+                </div>
+                <div class="right_side">
+                    <div class="timer_top">
+                        <div class="timer">
+                            00:00:00
+                        </div>
+                        <div class="timer_buttons">
+                            <div class="btn_group">
+                                <button id="start_btn">Начать</button>
+                                <button id="pause_btn">Пауза</button>
+                                <button id="finish_btn">Завершить сессию</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr color="#D8E2FF">
+                    <div class="timer_parametrs">
+                        <p style=" margin-right: 20px; "><label class="hourly_rate">Часовая ставка</label><input type="text" name="hourly_rate" value=""></p>
+                        <p><label class="name_of_the_project">Название проекта</label><input type="text" name="name_of_the_project" value=""></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
